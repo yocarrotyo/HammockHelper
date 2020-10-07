@@ -35,10 +35,10 @@ Week 4 (Starts Sept 23)
 Week 5 (Starts Sept 30)
 - [ ] Create the template for all jsps using bootstrap or materialize
 - [ ] Weekly journal entry
-- [ ] Add the role table
-- [ ] Add the role entity
-- [ ] Create the role dao
-- [ ] Create the role dao unit tests
+- [x] Add the role table
+- [x] Add the role entity
+- [x] Create the role dao
+- [x] Create the role dao unit tests
 - [ ] Add a jsp to display user and role
 - [ ] Add jsp to add a user
 

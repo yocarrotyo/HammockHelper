@@ -55,6 +55,32 @@ public class User {
     }
 
     /**
+     * Add role.
+     *
+     * @param role the role
+     */
+    public void addRole(Role role) {
+
+        //add a role to the instance variable that is our list of roles.
+        roles.add(role);
+        //set this user as the user on the role
+        role.setUsername(this);
+
+    }
+
+    /**
+     * Remove role.
+     *
+     * @param role the role
+     */
+    public void removeRole(Role role) {
+        //take the role out of our instance variable
+        roles.remove(role);
+        //blank out the info in the role
+        role.setUsername(null);
+    }
+
+    /**
      * Gets roles.
      *
      * @return the roles

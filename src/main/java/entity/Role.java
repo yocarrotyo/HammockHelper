@@ -30,6 +30,15 @@ public class Role {
     }
 
     /**
+     * Instantiates a new Role.
+     */
+    public Role(String rolename, User username) {
+        this.rolename = rolename;
+        this.username = username;
+
+    }
+
+    /**
      * Gets rolename.
      *
      * @return the rolename
