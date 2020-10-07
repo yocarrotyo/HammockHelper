@@ -31,13 +31,18 @@ class UserDaoTest {
     void getByIdSuccess() {
 
         User retrievedUser = dao.getById(1);
-        retrievedUser = dao.getById(4);
+        retrievedUser = dao.getById(1);
+        assertEquals("Caroline",retrievedUser.getFname());
+        assertEquals("Hughes",retrievedUser.getLname());
+        retrievedUser = dao.getById(3);
+        assertEquals("Arthur",retrievedUser.getFname());
+        assertEquals("Read",retrievedUser.getLname());
     }
 
     @Test
     void saveOrUpdateSuccess() {
 
-        String newUserLName = "McPherson";
+        String newUserLName = "Read";
         User userToUpdate = dao.getById(3);
         userToUpdate.setLname(newUserLName);
         dao.saveOrUpdate(userToUpdate);
@@ -49,11 +54,11 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("chihiro963","Caroline","Hughes","hughe297@gmail.com","5Mith5");
+        User newUser = new User("ilovebikes2020","Etan","Heller","EEHELLBOi225@yahoo.com","LETSROCK");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
-        assertEquals("Caroline",insertedUser.getFname());
+        assertEquals("Etan",insertedUser.getFname());
 
     }
 

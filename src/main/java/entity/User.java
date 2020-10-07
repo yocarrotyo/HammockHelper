@@ -3,6 +3,8 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * The type User.
@@ -24,6 +26,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
     @GenericGenerator(name="native", strategy="native")
     private int id;
+
+    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Role> roles = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -47,6 +52,24 @@ public class User {
         this.lname = lname;
         this.email = email;
         this.password = password;
+    }
+
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    /**
+     * Sets roles.
+     *
+     * @param roles the roles
+     */
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     /**

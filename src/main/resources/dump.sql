@@ -9,8 +9,7 @@ CREATE TABLE `park` (
   `lat_x` decimal(9.6) DEFAULT NULL,
   `lat_y` decimal(9.6) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `park_id_uindex` (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `park_id_uindex` (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 DROP TABLE IF EXISTS `user`;
@@ -21,11 +20,10 @@ CREATE TABLE `user` (
   `user_name` varchar(30) DEFAULT NULL,
   `user_fname` varchar(30) DEFAULT NULL,
   `user_lname` varchar(30) DEFAULT NULL,
-  `user_email` float DEFAULT NULL,
-  `user_password` float DEFAULT NULL,
+  `user_email` varchar(30) DEFAULT NULL,
+  `user_password` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `user_id_uindex` (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `user_id_uindex` (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 DROP TABLE IF EXISTS `role`;
@@ -37,8 +35,7 @@ CREATE TABLE `role` (
   `user_name` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `role_id_uindex` (`id`),
-  KEY `role_user_id_fk` (`user_name`),
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  KEY `role_user_id_fk` (`user_name`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 DROP TABLE IF EXISTS `site`;
@@ -53,6 +50,5 @@ CREATE TABLE `site` (
   `site_affirm_count` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `site_id_uindex` (`id`),
-  KEY `site_park_id_fk` (`site_park`),
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  KEY `site_park_id_fk` (`site_park`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

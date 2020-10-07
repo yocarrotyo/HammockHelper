@@ -25,9 +25,9 @@ Week 4 (Starts Sept 23)
 - [ ] Complete database design
 - [x] Create the database and user table
 - [x] Create the user entity class and annotate for hibernate
-- [ ] Create user dao
+- [x] Create user dao
 - [x] Create the test database
-- [ ] Create user dao unit tests
+- [x] Create user dao unit tests
 - [ ] Weekly journal entry
 - [x] Set up logging
 - [ ] Create class uml diagram
