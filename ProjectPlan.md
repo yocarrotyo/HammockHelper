@@ -17,19 +17,19 @@ Week 2
 - [x] Complete project statement                                                      
                                                          
 Week 3 (Starts Sept 16)
--[ ] Write project plan
--[x] Document application flow in text and pictures
--[ ] Weekly journal entry
+- [x] Write project plan
+- [x] Document application flow in text and pictures
+- [ ] Weekly journal entry
 
 Week 4 (Starts Sept 23)
 - [ ] Complete database design
-- [ ] Create the database and user table
-- [ ] Create the user entity class and annotate for hibernate
+- [x] Create the database and user table
+- [x] Create the user entity class and annotate for hibernate
 - [ ] Create user dao
-- [ ] Create the test database
+- [x] Create the test database
 - [ ] Create user dao unit tests
 - [ ] Weekly journal entry
-- [ ] Set up logging
+- [x] Set up logging
 - [ ] Create class uml diagram
 
 Week 5 (Starts Sept 30)
