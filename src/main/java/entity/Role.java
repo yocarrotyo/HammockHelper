@@ -13,9 +13,14 @@ public class Role {
 
     @Column(name = "role_name")
     private String rolename;
+
+    //@Column(name = "user_name")
+    //private String username;
+
     @ManyToOne
-    @JoinColumn(referencedColumnName = "user_name")
-    private User username;
+    @JoinColumn(name="user_name", referencedColumnName = "user_name")
+    private User user;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
     @GenericGenerator(name="native", strategy="native")
@@ -31,11 +36,22 @@ public class Role {
 
     /**
      * Instantiates a new Role.
+     *      * @param admin
+     *      * @param username
+     *      * @param user
      */
-    public Role(String rolename, User username) {
+    public Role(String rolename, User user) {
         this.rolename = rolename;
-        this.username = username;
+        this.user = user;
 
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
@@ -54,24 +70,6 @@ public class Role {
      */
     public void setRolename(String rolename) {
         this.rolename = rolename;
-    }
-
-    /**
-     * Gets username.
-     *
-     * @return the username
-     */
-    public User getUsername() {
-        return username;
-    }
-
-    /**
-     * Sets username.
-     *
-     * @param username the username
-     */
-    public void setUsername(User username) {
-        this.username = username;
     }
 
     /**

@@ -15,7 +15,9 @@ People looking to reserve a site will be able to:
 That individual site checker will be especially useful on busy weekends where only one or two sites may be available at a park.
 Hammock camping aficionados will be able to:
 * Add information about campsites they’ve visited, like total hammock capacity or better pictures of a site
-Park employees and other administrative users will be able to monitor the site, for example, to prevent hammockers from
+
+Park employees and other administrative users will be able to:
+* Monitor the site, for example, to prevent hammockers from
 using trees that are too small to safely support them
 
 A public spreadsheet to track hammock sites was started in 2017 on hammockforums.net, but my app will be easier to read and allow different types of searching.

@@ -21,11 +21,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
          */
         @BeforeEach
         void setUpTests() {
-            util.Database database = util.Database.getInstance();
-            database.runSQL("cleandb.sql");
-
             //define the DAO
             dao = new RoleDao();
+
+            util.Database database = util.Database.getInstance();
+            database.runSQL("cleandb.sql");
 
         }
 
@@ -34,22 +34,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
             Role retrievedRole = dao.getById(1);
             assertEquals("Camper",retrievedRole.getRolename());
-            assertEquals("rockhead929",retrievedRole.getUsername());
+            assertEquals("rockhead929",retrievedRole.getUser().getUsername());
             retrievedRole = dao.getById(3);
             assertEquals("Camper",retrievedRole.getRolename());
-            assertEquals("itsmyworld",retrievedRole.getUsername());
+            assertEquals("itsmyworld",retrievedRole.getUser().getUsername());
         }
 
         @Test
         void getByIdVerifyUser() {
 
-            Role retrievedRole = dao.getById(1);
+            Role retrievedRole = dao.getById(4);
             //check that the role isn't null
             assertNotNull(retrievedRole);
             //make sure you can look up stuff about the user too
-            assertEquals("John",retrievedRole.getUsername().getFname());
-            retrievedRole = dao.getById(3);
-            assertEquals("itsmyworld",retrievedRole.getUsername().getFname());
+            assertEquals("Arthur",retrievedRole.getUser().getFname());
+            retrievedRole = dao.getById(6);
+            assertEquals("Nicki",retrievedRole.getUser().getFname());
         }
 
         @Test
@@ -70,13 +70,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
             //grab a user to add for the new role
             UserDao userDao = new UserDao();
             User user = userDao.getById(1); //lets add the admin role to caroline hughes
+
             Role newRole = new Role("Admin",user);
             user.addRole(newRole);
             int id = dao.insert(newRole);
             assertNotEquals(0,id);
             Role insertedRole = dao.getById(id);
             assertNotNull(insertedRole);
-            assertEquals("Caroline",insertedRole.getUsername().getFname());
+
+            //check that the users set on the
+            assertEquals("Caroline",insertedRole.getUser().getFname());
             assertEquals("Admin",insertedRole.getRolename());
 
         }

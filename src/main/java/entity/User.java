@@ -1,8 +1,10 @@
 package entity;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,8 +13,9 @@ import java.util.Set;
  */
 @Entity(name = "User")
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
     @Column(name = "user_name")
+    @NaturalId
     private String username;
     @Column(name = "user_fname")
     private String fname;
@@ -27,7 +30,7 @@ public class User {
     @GenericGenerator(name="native", strategy="native")
     private int id;
 
-    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
     /**
@@ -57,27 +60,27 @@ public class User {
     /**
      * Add role.
      *
-     * @param role the role
+     * @param newrole the role
      */
-    public void addRole(Role role) {
+    public void addRole(Role newrole) {
 
         //add a role to the instance variable that is our list of roles.
-        roles.add(role);
+        roles.add(newrole);
         //set this user as the user on the role
-        role.setUsername(this);
+        newrole.setUser(this);
 
     }
 
     /**
      * Remove role.
      *
-     * @param role the role
+     * @param oldrole the role being removed
      */
-    public void removeRole(Role role) {
+    public void removeRole(Role oldrole) {
         //take the role out of our instance variable
-        roles.remove(role);
+        roles.remove(oldrole);
         //blank out the info in the role
-        role.setUsername(null);
+        oldrole.setUser(null);
     }
 
     /**
