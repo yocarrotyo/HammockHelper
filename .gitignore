@@ -15,6 +15,9 @@
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+/home/caroline/IdeaProjects/HammockHelper/src/test/resources/database.properties
+/home/caroline/IdeaProjects/HammockHelper/src/main/resources/hibernate.cfg.xml
+/home/caroline/IdeaProjects/HammockHelper/src/test/resources/hibernate.cfg.xml
 
 # Gradle:
 .idea/gradle.xml
