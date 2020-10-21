@@ -6,5 +6,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-  <display-name>User Display Exercise</display-name>
+  <display-name>Hammock Helper</display-name>
+
+  <!-- Tell the server to use form-based authentication. -->
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/login-error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+
+  <!-- Protect the contribution pages -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>contribute</web-resource-name>
+      <url-pattern>/contribute.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>Camper</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-role>
+    <role-name>Camper</role-name>
+  </security-role>
+
 </web-app>

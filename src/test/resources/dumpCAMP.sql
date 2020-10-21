@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `review`
+-- Table structure for table `park`
 --
 
-DROP TABLE IF EXISTS `review`;
+DROP TABLE IF EXISTS `park`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `review` (
-  `rev_id` int NOT NULL AUTO_INCREMENT,
-  `rev_user` varchar(30) NOT NULL,
-  `rev_rating` float DEFAULT NULL,
-  `rev_campsite_id` int DEFAULT NULL,
-  PRIMARY KEY (`rev_id`),
-  KEY `review_campsite_id_fk` (`rev_campsite_id`),
-  KEY `review_rev_user_index` (`rev_user`),
-  CONSTRAINT `review_campsite_id_fk` FOREIGN KEY (`rev_campsite_id`) REFERENCES `campsite` (`id`)
+CREATE TABLE `park` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `pk_name` varchar(50) DEFAULT NULL,
+  `pk_state` varchar(2) DEFAULT NULL,
+  `pk_lat` decimal(9,6) DEFAULT NULL,
+  `pk_long` decimal(9,6) DEFAULT NULL,
+  `pk_ZIP` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `park_id_index` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `review`
+-- Dumping data for table `park`
 --
 
-LOCK TABLES `review` WRITE;
-/*!40000 ALTER TABLE `review` DISABLE KEYS */;
-/*!40000 ALTER TABLE `review` ENABLE KEYS */;
+LOCK TABLES `park` WRITE;
+/*!40000 ALTER TABLE `park` DISABLE KEYS */;
+/*!40000 ALTER TABLE `park` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-14 17:09:41
+-- Dump completed on 2020-10-14 17:10:45

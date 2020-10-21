@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         //DECLARE THE DAO
         RoleDao dao;
+        GenericDao genericDao;
 
         /*
         Set up the tests
@@ -23,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         void setUpTests() {
             //define the DAO
             dao = new RoleDao();
+            genericDao = new GenericDao(Role.class);
 
             util.Database database = util.Database.getInstance();
             database.runSQL("cleandb.sql");
@@ -32,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         @Test
         void getByIdSuccess() {
 
-            Role retrievedRole = dao.getById(1);
+            Role retrievedRole = (Role) genericDao.getById(1);
             assertEquals("Camper",retrievedRole.getRolename());
             assertEquals("rockhead929",retrievedRole.getUser().getUsername());
             retrievedRole = dao.getById(3);
