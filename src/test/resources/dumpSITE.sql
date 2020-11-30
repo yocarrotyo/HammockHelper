@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: hammock
+-- Host: 127.0.0.1    Database: test_hammock
 -- ------------------------------------------------------
 -- Server version	8.0.21-0ubuntu0.20.04.4
 
@@ -28,7 +28,9 @@ CREATE TABLE `campsite` (
   `site_pk_id` int DEFAULT NULL,
   `site_info_confidence` int DEFAULT NULL,
   `site_rating` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `campsite_park_id_fk` (`site_pk_id`),
+  CONSTRAINT `campsite_park_id_fk` FOREIGN KEY (`site_pk_id`) REFERENCES `park` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-14 17:11:45
+-- Dump completed on 2020-10-28 17:07:47
