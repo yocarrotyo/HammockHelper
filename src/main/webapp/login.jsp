@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="head.jsp"%>
 <html>
-<title>Authenticate yourself.</title>
+<title>Welcome, authenticated user!</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
@@ -23,9 +23,10 @@
         background-size: cover;
     }
 </style>
+<head>
+    <title>Login</title>
+</head>
 <body>
-
-Welcome! Please log in to your account.
 <FORM ACTION="j_security_check" METHOD="POST">
     <TABLE>
         <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
@@ -33,6 +34,6 @@ Welcome! Please log in to your account.
         <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
     </TABLE>
 </FORM>
-
 </body>
+
 </html>

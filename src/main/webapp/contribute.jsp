@@ -11,17 +11,13 @@
         <!--select search type-->
         Add campsite info here:
 
-            <label for="siteparkname">Park Name: </label><input type="text" name="siteparkname"/><br />
-            <label for="siteno">Site Number: </label><input type="text" name="siteno"/><br />
-            <label for="sitecap">Site Hammock Capacity: </label><input type="text" name="ssn" value="sitecap"/><br />
+            <label for="siteparkname">Park Name: </label><input type="text" name="siteparkname" id="siteparkname" value="siteparkname" required="required"/><br />
+            <label for="siteno">Site Number: </label><input type="text" name="siteno" id="siteno" value="siteno" required="required"/><br />
+            <label for="sitecap">Site Hammock Capacity: </label><input type="text" name="ssn" id="sitecap" value="sitecap" required="required"/><br />
             <br />
             <!--submit button-->
             <input type="submit" name="" value="Enter" />
     </form>
-    <!-- display a message if there is one-->
-    <c:if test="${addMsg != null}" >
-        <h3>Result: ${addMsg} </h3>
-    </c:if>
 </div>
 </body>
 </html>
