@@ -7,6 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body,h1,h5 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('BackgroundImage.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
 <head>
     <title>This is where ya search for sites. Anyone can get here!</title>
     The search button must take us to the search site servlet.
@@ -14,9 +26,9 @@
 
     <form action="searchCampsite" method="GET">
         <!--select search type-->
-        <label for="parks">Choose a park from the list to see which sites are hammock-friendly:</label>
-        <input list="parks" name="parks" id="park">
-            <datalist id="parks">
+        <label for="park">Choose a park from the list to see which sites are hammock-friendly:</label>
+        <input list="park" name="park">
+            <datalist id="park">
                 <option value="Amnicon Falls">
                 <option value="Aztalan">
                 <option value="Belmont Mound">

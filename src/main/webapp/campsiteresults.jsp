@@ -5,7 +5,6 @@
 
 <div class="container-fluid">
     <h2>Here are all the campsites we found</h2>
-    <h3>The following users matched your search:</h3>
     <table>
         <tr><td>Park Name</td><td>Site no.</td><td>Capacity</td>Confidence</tr>
         <!--loop through the employees in the list-->
