@@ -120,4 +120,16 @@ class GenericDaoTest {
         assertEquals("Blue Mound",name);
 
     }
+
+    @Test
+    void getBy2PropertiesLikeAndEqSuccess() {
+
+        String siteno = String.valueOf('2');
+        int parkid = 6;
+        List<Campsite> siteList = siteDao.getBy2PropertiesLikeAndEq("siteno",siteno,"parkid",parkid);
+        Campsite oneSite = siteList.get(0);
+        int capacity = oneSite.getCapacity();
+        assertEquals(1,capacity);
+
+    }
 }

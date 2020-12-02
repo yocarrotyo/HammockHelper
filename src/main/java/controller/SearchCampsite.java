@@ -45,14 +45,14 @@ public class SearchCampsite extends HttpServlet {
         //look up the ID of the park also because I don't want to do a join
         Park onepark = parkList.get(0);
         logger.debug("the single park is: ",onepark.toString());
-        int parkid = onepark.getId();
+        int parkid = onepark.getPark_id();
 
         //do stuff for checking an individual site
         if (siteno != null) {
             //assume we cannot do hammocks here
             String hammockFriendly = "no";
             //find the campsite in the database
-            List<Campsite> siteList = siteDao.getBy2PropertiesLikeAndEq("site_no",siteno,"site_pk_id",parkid);
+            List<Campsite> siteList = siteDao.getBy2PropertiesLikeAndEq("siteno",siteno,"parkid",parkid);
             Campsite onesite = siteList.get(0);
 
             //see if the site hammock capacity is greater than 0

@@ -984,9 +984,9 @@ SELECT|sys.sys_config:null
     <foreign-key id="304" parent="291" name="campsite_park_id_fk">
       <ColNames>park_id</ColNames>
       <RefTableName>park</RefTableName>
-      <RefColNames>id</RefColNames>
+      <RefColNames>park_id</RefColNames>
     </foreign-key>
-    <column id="305" parent="292" name="id">
+    <column id="305" parent="292" name="park_id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
@@ -1013,12 +1013,12 @@ SELECT|sys.sys_config:null
       <DataType>varchar(5)|0s</DataType>
     </column>
     <index id="311" parent="292" name="park_id_index">
-      <ColNames>id</ColNames>
+      <ColNames>park_id</ColNames>
       <Type>btree</Type>
     </index>
     <key id="312" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>park_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="313" parent="293" name="rev_id">

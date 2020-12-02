@@ -151,7 +151,7 @@ public class GenericDao<T> {
 
         //build a compound where clause for the query
         Predicate queryRestriction = builder.like(propertyPath1,"%" + value1 + "%");
-        queryRestriction = builder.and(queryRestriction, builder.equal(propertyPath2,"%" + value1 + "%"));
+        queryRestriction = builder.and(queryRestriction, builder.equal(propertyPath2,value2));
 
         query.where(queryRestriction);
 

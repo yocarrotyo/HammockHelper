@@ -30,7 +30,7 @@ CREATE TABLE `campsite` (
   `site_rating` float DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `campsite_park_id_fk` (`site_pk_id`),
-  CONSTRAINT `campsite_park_id_fk` FOREIGN KEY (`site_pk_id`) REFERENCES `park` (`id`)
+  CONSTRAINT `campsite_park_id_fk` FOREIGN KEY (`site_pk_id`) REFERENCES `park` (park_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

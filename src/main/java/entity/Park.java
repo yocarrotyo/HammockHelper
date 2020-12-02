@@ -23,9 +23,9 @@ public class Park {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
     @GenericGenerator(name="native", strategy="native")
-    private int id;
+    private int park_id;
 
-    @OneToMany(mappedBy="park",cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="parkid",cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
     private List<Campsite> campsites = new ArrayList<>();
 
     public Park() {
@@ -72,12 +72,12 @@ public class Park {
         this.zipcode = zipcode;
     }
 
-    public int getId() {
-        return id;
+    public int getPark_id() {
+        return park_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPark_id(int id) {
+        this.park_id = id;
     }
 
     public List<Campsite> getCampsites() {

@@ -28,7 +28,8 @@ public class Campsite {
     private int id;
 
     @ManyToOne
-    private Park park;
+    @JoinColumn(name = "park_id")
+    private Park parkid;
 
     public String getSiteno() {
         return siteno;
@@ -70,12 +71,12 @@ public class Campsite {
         this.id = id;
     }
 
-    public Park getPark() {
-        return park;
+    public Park getParkid() {
+        return parkid;
     }
 
-    public void setPark(Park park) {
-        this.park = park;
+    public void setParkid(Park parkid) {
+        this.parkid = parkid;
     }
 
     public Campsite() {
