@@ -17,8 +17,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * A simple servlet to welcome the user.
- * @author pwaite
+ * Servlet for searching the campsite database for sites and determining if they're hammock-friendly.
+ * @author chughes
  */
 
 @WebServlet(
@@ -43,35 +43,32 @@ public class SearchCampsite extends HttpServlet {
         List<Park> parkList = parkDao.getByProperty("parkname",parkname); //this will require multi-state lookup soon
         logger.debug("parkList contains: ",parkList.toString());
         //look up the ID of the park also because I don't want to do a join
-        Park onepark = parkList.get(0);
+        Park onepark = parkList.get(0); //assumption: park names must be unique within a state
         logger.debug("the single park is: ",onepark.toString());
         int parkid = onepark.getPark_id();
 
         //do stuff for checking an individual site
-        if (siteno != null) {
-            //assume we cannot do hammocks here
-            String hammockFriendly = "no";
+        int hamcap = 0;
+        String hammockFriendly = "no";
+        if (!siteno.equals("")) {
             //find the campsite in the database
             List<Campsite> siteList = siteDao.getBy2PropertiesLikeAndEq("siteno",siteno,"parkid",parkid);
             Campsite onesite = siteList.get(0);
 
-            //see if the site hammock capacity is greater than 0
-            int hamcap = 0;
+            //get the capacity for that campsite
             hamcap = onesite.getCapacity();
 
             //if we have found a hammock capacity set the response to affirmative/yes
             if (hamcap > 0) {
                 hammockFriendly="yes";
             }
-            //set the attributes describing the campsite
-            //set the attributes describing the campsite
-            req.setAttribute("isFriendly", hammockFriendly);
-            req.setAttribute("siteno",siteno);
         }
-        else {
-            //for now just return every campsite in the table ... lol
-            req.setAttribute("campsites", siteDao.getAll());
-        }
+        //set the attributes describing the campsite
+        req.setAttribute("isFriendly", hammockFriendly);
+        req.setAttribute("siteno",siteno);
+        req.setAttribute("campsites", siteDao.getAll());
+        req.setAttribute("park", parkname);
+        req.setAttribute("parkid",parkid);
 
         //forward the request to the display jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/campsiteresults.jsp");

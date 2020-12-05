@@ -7,26 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-    body,h1,h5 {font-family: "Raleway", sans-serif}
-    body, html {height: 100%}
-    .bgimg {
-        background-image: url('BackgroundImage.jpg');
-        min-height: 100%;
-        background-position: center;
-        background-size: cover;
-    }
-</style>
-<head>
-    <title>This is where ya search for sites. Anyone can get here!</title>
-    The search button must take us to the search site servlet.
-    We will search the campiste table.
-
+<%@include file="head.jsp"%>
+<body></body>
+<div class="bgimg w3-display-container w3-text-white">
+    <div class="w3-display-middle w3-large">
+    Welcome to the campsite search!
+    Search for a park to find out which campsites have good trees to hang a hammock.
     <form action="searchCampsite" method="GET">
         <!--select search type-->
-        <label for="park">Choose a park from the list to see which sites are hammock-friendly:</label>
+        <label for="park">Start typing the name of a park:</label>
         <input list="park" name="park">
             <datalist id="park">
                 <option value="Amnicon Falls">
@@ -96,8 +85,7 @@
         <!--submit button-->
         <input type="submit" name="" value="Find me some trees" />
     </form>
-</head>
-<body>
-
+    </div>
+</div>
 </body>
 </html>
