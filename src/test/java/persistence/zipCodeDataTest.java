@@ -1,6 +1,5 @@
 package persistence;
 
-import com.zipcodeapi.Response;
 import com.zipcodeapi.ZipCodesItem;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +38,7 @@ public class zipCodeDataTest {
         myZips.add("53718");
         myZips.add("53714");
         myZips.add("53704");
-        List<ZipCodesItem> apiZipCodes = dao.getResponses().getZipCodes();
+        List<ZipCodesItem> apiZipCodes = dao.getResponses("/53704/5/mile").getZipCodes();
         for (int i=0; i < apiZipCodes.size(); i++) {
             String myZip = myZips.get(i);
             String apiZip = apiZipCodes.get(i).getZipCode();

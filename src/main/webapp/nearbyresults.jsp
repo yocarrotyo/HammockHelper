@@ -12,7 +12,10 @@
 </head>
 <body>
 
-yo this is the nearby results page what's up, the park is ${park}
+yo this is the nearby results page what's up, the park is
+<p>parkid (original session attr): ${parkid}</p>
+<p>parkid1 (retrieved and re-set session attr): ${parkid1}</p>
+<p>parkid2 (send via the form): ${parkid2}</p>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +30,7 @@ public class SearchCampsite extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession session = req.getSession();
         final Logger logger = LogManager.getLogger(this.getClass());
         //access the info that was entered into the form - park and maybe site no
         String siteno= req.getParameter("siteno");
@@ -68,7 +70,7 @@ public class SearchCampsite extends HttpServlet {
         req.setAttribute("siteno",siteno);
         req.setAttribute("campsites", siteDao.getAll());
         req.setAttribute("park", parkname);
-        req.setAttribute("parkid",parkid);
+        session.setAttribute("parkid",parkid);
 
         //forward the request to the display jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/campsiteresults.jsp");

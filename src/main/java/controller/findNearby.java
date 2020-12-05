@@ -1,6 +1,5 @@
 package controller;
 
-
 import com.zipcodeapi.ZipCodesItem;
 import entity.Campsite;
 import entity.Park;
@@ -30,33 +29,34 @@ public class findNearby extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final Logger logger = LogManager.getLogger(this.getClass());
 
+        final Logger logger = LogManager.getLogger(this.getClass());
         HttpSession session = req.getSession();
-        //fetch the id of the previously searched park from the session
-        int parkid = (int) session.getAttribute("park");
+
+        //pull the session-scope attribute parkid
+        int parkid = (int) session.getAttribute("parkid");
+
         //get the relevant park object and its zip code
+        GenericDao parkDao = new GenericDao(Park.class);
+        Park myPark = (Park) parkDao.getById(parkid);
+        String parkZip = myPark.getZipcode();
 
         //build a string to send to the ZIP code API
-
+        String apiTargetParams = "/" + parkZip +"/20/mile";
 
         //create a zip code data dao
-        /*
         zipCodeDataDao dao = new zipCodeDataDao();
         List<String> myZips = new ArrayList<String>();
-        myZips.add("53701");
-        myZips.add("53702");
-        myZips.add("53707");
         //call the getResponses method
-        List<ZipCodesItem> apiZipCodes = dao.getResponses().getZipCodes();
+        List<ZipCodesItem> apiZipCodes = dao.getResponses(apiTargetParams).getZipCodes();
         for (int i=0; i < apiZipCodes.size(); i++) {
-            String myZip = myZips.get(i);
-            String apiZip = apiZipCodes.get(i).getZipCode();
+
+        }
         //use returned zip codes to look up parks with that ZIP
-        */
 
         //forward the request to the display jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/nearbyresults.jsp");
         dispatcher.forward(req, resp);
     }
+    
 }
