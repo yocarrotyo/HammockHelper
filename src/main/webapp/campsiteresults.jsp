@@ -9,16 +9,16 @@
 
         <c:choose>
             <c:when test="${not empty campsitescol}">
-                <p>Here are all the hammock-friendly campsites we found at ${park}<p>
+                <p>Here are all the hammock-friendly campsites we found at ${park}</p>
                 <table class="w3-table">
-                    <tr><td>Campsite #</td><td>Number of hammocks</td>
+                    <tr><td>Campsite #</td><td>Number of hammocks</td></tr>
                         <!--loop through the employees in the list-->
                         <c:forEach var="site" items="${campsites}">
-                    <tr>
-                        <td>${site.siteno}</td>
-                        <td>${site.capacity}</td>
-                    </tr>
-                    </c:forEach>
+                            <tr>
+                                <td>${site.siteno}</td>
+                                <td>${site.capacity}</td>
+                            </tr>
+                        </c:forEach>
                 </table>
             </c:when>
             <c:otherwise>

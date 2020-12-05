@@ -49,14 +49,16 @@ public class findNearby extends HttpServlet{
         List<String> myZips = new ArrayList<String>();
         //call the getResponses method
         List<ZipCodesItem> apiZipCodes = dao.getResponses(apiTargetParams).getZipCodes();
+        /*
         for (int i=0; i < apiZipCodes.size(); i++) {
-
         }
+        */
         //use returned zip codes to look up parks with that ZIP
+        session.setAttribute("nearbyZIPS",apiZipCodes);
 
         //forward the request to the display jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/nearbyresults.jsp");
         dispatcher.forward(req, resp);
     }
-    
+
 }
