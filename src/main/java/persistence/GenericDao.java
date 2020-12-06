@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.Campsite;
 import entity.Park;
 import entity.Role;
 import org.apache.logging.log4j.LogManager;
@@ -164,6 +165,9 @@ public class GenericDao<T> {
     public int insert(Role newRole) {
 
         return 0;
+    }
+
+    public List<T> getBy2PropertiesEqAndGt(String parkid, String zipcode, String capacity, int i) {
     }
 
 

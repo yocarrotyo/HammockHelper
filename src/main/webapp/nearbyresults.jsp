@@ -13,12 +13,18 @@
 
 yo this is the nearby results page what's up, the park is
 <p>parkid (original session attr): ${parkid}</p>
-<p>parkid1 (retrieved and re-set session attr): ${parkid1}</p>
-<p>parkid2 (send via the form): ${parkid2}</p>
+
 <ul>
     <c:forEach var="zip" items="${nearbyZIPS}">
         <li>${zip}</li>
     </c:forEach>
 </ul>
+<p> Here's the list of parks nearby </p>
+<ul>
+    <c:forEach var="park" items="${nearbyParks}">
+        <li>${park.parkname}</li>
+    </c:forEach>
+</ul>
+
 </body>
 </html>
