@@ -1,12 +1,10 @@
 package persistence;
 
-import entity.Campsite;
-import entity.Park;
-import entity.Role;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import utils.SessionFactoryProvider;
 
 import javax.persistence.criteria.*;
 import java.util.List;
