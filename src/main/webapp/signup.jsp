@@ -7,10 +7,88 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>This is where ya sign up. Anyone can get to this page!</title>
-</head>
+<%@include file="head.jsp"%>
 <body>
+<div class="bgimg w3-display-container w3-text-white">
+    <div class="w3-display-middle w3-large">
+        <form id="signUpForm" role="form" data-toggle="validator" class="form-horizontal"
+              action="signUpUser"
+              method="post">
 
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="fname">First
+                    Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="fname"
+                           name="fname"
+                           data-error="Please enter your first name." required>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lname">Last Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="lname"
+                           name="lname"
+                           data-error="Please enter your last name." required>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2" for="email">Email
+                    Address</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="email"
+                           name="email"
+                           data-error="Please enter your email address." required>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label  class="control-label col-sm-2" for="username">Username</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="username"
+                           name="username"
+                           data-error="Please enter a username." required>
+                </div>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="password">Password
+                </label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="password"
+                           name="password" data-error="Please provide a password."
+                           required>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2"
+                       for="confirmPassword">Retype
+                    Password</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="confirmPassword"
+                           name="confirmPassword" equalTo="#password"
+                           data-match="#password"
+                           data-match-error="Confirmation password does not match"
+                           required data-error="Please retype your password.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-default col-sm-offset-3"
+                    data-disable="true">Submit
+            </button>
+            <button type="reset" class="btn btn-default">Clear</button>
+            <!--for google recaptcha-->
+            <!--<div class="g-recaptcha" data-sitekey="6LewtTgUAAAAADuEbgusz9FbghpuXq-gBm6rLPS9"></div>-->
+        </form>
+    </div>
+</div>
 </body>
+</html>
+
+</form>
 </html>

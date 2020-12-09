@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@include file="head.jsp"%>
-<body></body>
+<%@include file="top-buttons.jsp"%>
+<body>
 <div class="bgimg w3-display-container w3-text-white">
     <div class="w3-display-middle w3-large">
     Welcome to the campsite search!
@@ -87,5 +88,6 @@
     </form>
     </div>
 </div>
+<%@include file="bottom-buttons.jsp"%>
 </body>
 </html>

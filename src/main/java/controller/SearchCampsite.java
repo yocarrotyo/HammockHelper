@@ -3,7 +3,6 @@ package controller;
 import entity.Campsite;
 import entity.Park;
 import persistence.GenericDao;
-import persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -68,7 +67,7 @@ public class SearchCampsite extends HttpServlet {
         //set the attributes describing the campsite
         req.setAttribute("isFriendly", hammockFriendly);
         req.setAttribute("siteno",siteno);
-        req.setAttribute("campsites", siteDao.getAll());
+        req.setAttribute("campsites", siteDao.getBy2PropertiesEqAndGt("parkid",parkid,"capacity","0"));
         req.setAttribute("park", parkname);
         session.setAttribute("parkid",parkid);
 

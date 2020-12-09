@@ -2,7 +2,7 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
-
+<%@include file="top-buttons.jsp"%>
 <div class="bgimg w3-display-container w3-text-white">
     <div class="w3-display-middle w3-large">
     <c:set var="campsitescol" value="${campsites}"></c:set>
@@ -45,9 +45,9 @@
     <div class="w3-display-bottommiddle">
         <button onclick="window.location.href='search.jsp';" class="w3-button w3-black">Search again</button>
         <form action="findNearby" method="GET"><input type="submit" name="" class="w3-button w3-black" value="Find nearby" /></form>
-        <button onclick="window.location.href='contribute.jsp';" class="w3-button w3-black">Contribute data</button>
 
     </div>
 </div>
+<%@include file="bottom-buttons.jsp"%>
 </body>
 </html>

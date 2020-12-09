@@ -10,13 +10,17 @@
 <html>
 <jsp:include page="head.jsp" />
 <body>
-<FORM ACTION="j_security_check" METHOD="POST">
-    <TABLE>
-        <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
-        <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
-        <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
-    </TABLE>
-</FORM>
+    <div class="bgimg w3-display-container w3-text-white">
+        <div class="w3-display-middle w3-large">
+            <FORM ACTION="j_security_check" METHOD="POST">
+                <TABLE>
+                    <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
+                    <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
+                    <TR><TH><INPUT TYPE="SUBMIT" VALUE="Log In">
+                </TABLE>
+            </FORM>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -43,22 +43,22 @@ public class SignUpUser extends HttpServlet {
         System.out.println(gRecaptchaResponse);
         boolean isVerified = VerifyRecaptcha.verify(gRecaptchaResponse);
 
-        if (isVerified) {
-            GenericDao userDao = new GenericDao(User.class);
-            //look up a user with username provided
-            List<User> existingUsers = userDao.getByProperty("username",req.getParameter("username"));
-            if (existingUsers.isEmpty()) {
-                userDao.insert(user);
-            }
-            else {
-                req.setAttribute("errorMessage", "That username is already in use");
-                logger.info("Existing user");
-            }
+        //if (isVerified) {
+        GenericDao userDao = new GenericDao(User.class);
+        //look up a user with username provided
+        List<User> existingUsers = userDao.getByProperty("username", req.getParameter("username"));
+        if (existingUsers.isEmpty()) {
+            userDao.insert(user);
         } else {
+            req.setAttribute("errorMessage", "That username is already in use");
+            logger.info("Existing user");
+        }
+        /*} else {
             req.setAttribute("errorMessage", "Failed Captcha - Please try again");
             logger.info("Failed Captcha");
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConfirmation" +
+        */
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/signupconfirmation" +
                 ".jsp");
         dispatcher.forward(req, resp);
     }

@@ -4,7 +4,6 @@ import com.zipcodeapi.ZipCodesItem;
 import entity.Campsite;
 import entity.Park;
 import persistence.GenericDao;
-import persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +27,7 @@ import persistence.zipCodeDataDao;
         urlPatterns = {"/findNearby"}
 )
 
-public class findNearby extends HttpServlet{
+public class FindNearby extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
