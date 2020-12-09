@@ -162,12 +162,39 @@ public class GenericDao<T> {
 
     }
 
-    public int insert(Role newRole) {
-
-        return 0;
+    public int insert(T entity) {
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(entity);
+        transaction.commit();
+        session.close();
+        return id;
     }
 
-    public List<T> getBy2PropertiesEqAndGt(String parkid, String zipcode, String capacity, int i) {
+    public List<T> getBy2PropertiesEqAndGt(String propertyName1, int value1, String propertyName2, String value2) {
+        Session session = getSession();
+
+        logger.debug("Searching for thing with {} like {} and {} greater than {}",  propertyName1, value1, propertyName2, value2);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+
+        //create an expression for each of the properties to check against
+        Expression<String> propertyPath1 = root.get(propertyName1);
+        Expression<String> propertyPath2 = root.get(propertyName2);
+
+        //build a compound where clause for the query
+        Predicate queryRestriction = builder.equal(propertyPath1,value1);
+        queryRestriction = builder.and(queryRestriction, builder.greaterThan(propertyPath2,value2));
+
+        query.where(queryRestriction);
+
+        List<T> entities = session.createQuery( query ).getResultList();
+        session.close();
+        return entities;
+
     }
 
 

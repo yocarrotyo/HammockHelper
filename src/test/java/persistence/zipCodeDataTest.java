@@ -10,7 +10,8 @@ import static org.junit.Assert.assertEquals;
 
 public class zipCodeDataTest {
 
-    @Test
+
+    //@Test
     void getResponseSuccess() {
         zipCodeDataDao dao = new zipCodeDataDao();
         List<String> myZips = new ArrayList<String>();

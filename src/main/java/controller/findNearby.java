@@ -71,11 +71,13 @@ public class findNearby extends HttpServlet{
         //go thru the nearby Parks container
         for(Park onepark : nearbyParks) {
             //look up a campsite with that park ID and a hammock capacity greater than 0
-            ArrayList<Campsite> friendlySites = (ArrayList<Campsite>) siteDao.getBy2PropertiesEqAndGt("parkid",onepark.getZipcode(),"capacity",0);
-            //if the returned list has any stuff in it
-            //add the park and list of sites to the friendlySitesMap.
+            ArrayList<Campsite> friendlySites = (ArrayList<Campsite>) siteDao.getBy2PropertiesEqAndGt("parkid",onepark.getPark_id(),"capacity","0");
+            if (!friendlySites.isEmpty()) {
+                //add the park and list of sites to the friendlySitesMap.
+                friendlySitesMap.put(onepark, friendlySites);
+            }
         }
-        //use returned zip codes to look up parks with that ZIP
+
         session.setAttribute("nearbyZIPS",apiZipCodes);
         session.setAttribute("nearbyParks",nearbyParks);
         session.setAttribute("friendlySites",friendlySitesMap);

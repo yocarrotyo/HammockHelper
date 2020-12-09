@@ -129,6 +129,12 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- hibernate data validator-->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-cdi</artifactId>
+      <version>5.2.4.Final</version>
+    </dependency>
     <!-- project lombok to eliminate redundant code -->
     <dependency>
       <groupId>org.projectlombok</groupId>

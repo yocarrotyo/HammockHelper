@@ -26,5 +26,13 @@ yo this is the nearby results page what's up, the park is
     </c:forEach>
 </ul>
 
+
+<p> And here's a dump of what's in FriendlySitesMap </p>
+<table>
+    <c:forEach var="entry" items="${friendlySites}">
+        <tr><td><c:out value="${entry.key.parkname}"/></td> <td><c:out value="${entry.value.siteno}"/> </td></tr>
+    </c:forEach>
+</table>
+
 </body>
 </html>

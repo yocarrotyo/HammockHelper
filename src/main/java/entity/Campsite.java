@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Campsite {
     //@Column(name = "park_id")
     //private int parkid;
     @Column(name = "site_cap")
+    @Min(value = 0)
     private int capacity;
     @Column(name = "site_info_confidence")
     private int confidence;
