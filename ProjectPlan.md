@@ -22,7 +22,7 @@ Week 3 (Starts Sept 16)
 - [ ] Weekly journal entry
 
 Week 4 (Starts Sept 23)
-- [ ] Complete database design
+- [x] Complete database design
 - [x] Create the database and user table
 - [x] Create the user entity class and annotate for hibernate
 - [x] Create user dao
@@ -30,45 +30,45 @@ Week 4 (Starts Sept 23)
 - [x] Create user dao unit tests
 - [ ] Weekly journal entry
 - [x] Set up logging
-- [ ] Create class uml diagram
+- [ ] Create class uml diagram (never did this)
 
 Week 5 (Starts Sept 30)
-- [ ] Create the template for all jsps using bootstrap or materialize
+- [x] Create the template for all jsps using bootstrap or materialize
 - [ ] Weekly journal entry
 - [x] Add the role table
 - [x] Add the role entity
 - [x] Create the role dao
 - [x] Create the role dao unit tests
-- [ ] Add a jsp to display user and role
-- [ ] Add jsp to add a user
+- [ ] Add a jsp to display user and role (not doing this)
+- [x] Add jsp to add a user
 
 Week 6 (Starts Oct 7) - My Prof Dev Project due Oct 14
-- [ ] Create db on AWS
-- [ ] Deploy to AWS for first time
+- [x] Create db on AWS
+- [x] Deploy to AWS for first time
 - [ ] Weekly journal entry
-- [ ] Create park table(s)
-- [ ] Add the park entity (test, dev and prod dbs)
-- [ ] Realize that these daos are repetitive. Refactor into a generic dao!
-- [ ] Add submit data/review data functionality in jsp for user and role
-- [ ] Build the site check and regional browse/search jsp
-- [ ] Build the submit data jsp
-- [ ] Build the review data jsp
+- [x] Create park table(s)
+- [x] Add the park entity (test, dev and prod dbs)
+- [x] Realize that these daos are repetitive. Refactor into a generic dao!
+- [x] Add submit data functionality in jsp for campsites
+- [x] Build the site check and regional browse/search jsp (turned out to just be campsitesearch)
+- [x] Build the submit data jsp
+- [ ] Build the review data jsp (still in progress)
 
 Week 7 (Starts Oct 14) 
 - [ ] Weekly journal entry
-- [ ] Set up authentication locally
+- [x] Set up authentication locally
 - [ ] Set up authentication on AWS
-- [ ] Add accessibility and the star ratings features to the park site table?
-- [ ] Begin investigating photo upload features
+- [ ] Add accessibility and the star ratings features to the park site table? (not doing)
+- [ ] Begin investigating photo upload features (not doing)
 - [ ] Review and incorporate any feedback from Checkpoint 2.
 
 Week 8 (Starts Oct 21)
 - [ ] Weekly journal entry
 - [ ] Explore possibility of integration with google maps api or State DNR website to check availability
-- [ ] Create the campsite dao, unit tests, crud jsps (? usure if this is covered in week 6 ?)
-- [ ] Create bulk upload feature
+- [x] Create the campsite dao, unit tests, crud jsps (? usure if this is covered in week 6 ?)
+- [ ] Create bulk upload feature (nooo)
 - [ ] Create the campsite dao unit tests
-- [ ] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented. 
+- [x] Prepare for Checkpoint 3: Deployed to AWS, at least one JSP that displays data from the database is implemented. 
 
 Week 9 (Starts Oct 28)
 - [ ] Weekly journal entry
@@ -78,7 +78,7 @@ Week 9 (Starts Oct 28)
 
 Week 10 (Starts Nov 4)
 - [ ] Weekly journal entry
-- [ ] Unit test all api integrations
+- [x] Unit test all api integrations
 
 Week 11 (Starts Nov 11) - Team Project work week
 - [ ] Weekly journal entry
@@ -92,11 +92,14 @@ Week 13 (Starts Nov 25)--Thanksgiving
 - [ ] Complete todos identified in week 12
 - [ ] Prepare for week 13 peer code reviews
 - [ ] Code quality check
+- [x] Add real park data to database with park ZIP codes
+- [x] Complete the "find other sites nearby" (API integration with ZIP codes)
 - [ ] Review rubric
 
 Week 14 (Starts Dec 2)
 - [ ] Weekly journal entry
 - [ ] Create final presentation
+- [x] Add ability to register a new user
 
 Week 15 (Starts Dec 9)
 - [ ] Final Presentation
@@ -106,7 +109,7 @@ Week 15 (Starts Dec 9)
 
 Week 16 (Starts Dec 16)
 - [ ] Weekly journal entry
-- [ ] Final touches before code complete
+- [ ] Final touches before code complete LOLLLLLLLLLL
 
 ##Deliverables
 

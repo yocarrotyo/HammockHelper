@@ -20,10 +20,10 @@ import javax.servlet.annotation.*;
  *@author Eric Knapp
  */
 @WebServlet(
-        name = "addReview",
-        urlPatterns = { "/addReview" }
+        name = "processReview",
+        urlPatterns = { "/processReview" }
 )
-public class AddReview extends HttpServlet {
+public class ProcessReview extends HttpServlet {
 
     /**
      *  Handles HTTP POST requests.
@@ -40,29 +40,22 @@ public class AddReview extends HttpServlet {
 
         HttpSession session = req.getSession();
         final Logger logger = LogManager.getLogger(this.getClass());
-        //Access the info that was entered into the form
-        String siteno= req.getParameter("siteno");
-        int capacity= Integer.parseInt(req.getParameter("capacity"));
-        String parkname = req.getParameter("park");
-        //Use the DAO to instantiate a campsite entity
-        GenericDao siteDao = new GenericDao(Campsite.class);
-        GenericDao parkDao = new GenericDao(Park.class);
-        GenericDao reviewDao = new GenericDao(Review.class);
-
-        //Update or create the campsite entry in the database
-        Review newReview = new Review();
-        //set data on the campsite
-        newReview.setCapacity(capacity);
-        List<Park> parkList= parkDao.getByProperty("parkname",parkname);
-        Park thePark = parkList.get(0);
-        newReview.setParkid(parkList.get(0).getPark_id());
-        newReview.setSiteno(siteno);
-        newReview.setConfidence(10);
-        siteDao.insert(newReview);
+        //Get the list of sites
+        List<Campsite> siteList = (List<Campsite>) session.getAttribute("siteList");
+        //go thru the sitelist
+        //get one site's siteno
+        //build strings for the session attributes for affirmation
+        //check the affirmation submissions
+        //increment review confidence -- not just the instance variable but in the review table itself also
+        //run the validation utility
+        //build string for the session attribute for dispute
+        //check the dispute submissions
+        //reduce confidence on the existing review
+        //add a new review with the submitted info
 
         //Run the validation utility
 
-        //Add the returned message to the session - figure out from last semester.
+        //Send a thank you message to the user
         session.setAttribute("addedSite",newReview); //set the attribute
         session.setAttribute("thePark",thePark);
 

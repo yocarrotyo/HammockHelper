@@ -73,13 +73,13 @@ class GenericDaoTest {
 
     }
 
-    /**
+
     @Test
     void insertSuccess() {
 
         //grab a user to add for the new role
-        UserDao userDao = new UserDao();
-        User user = userDao.getById(1); //lets add the admin role to caroline hughes
+        GenericDao userDao = new GenericDao(User.class);
+        User user = (User) userDao.getById(1); //lets add the admin role to caroline hughes
 
         Role newRole = new Role("Admin",user);
         user.addRole(newRole);
@@ -93,7 +93,7 @@ class GenericDaoTest {
         assertEquals("Admin",insertedRole.getRolename());
 
     }
-    */
+
 
     @Test
     void deleteSuccess() {
@@ -130,6 +130,18 @@ class GenericDaoTest {
         Campsite oneSite = siteList.get(0);
         int capacity = oneSite.getCapacity();
         assertEquals(1,capacity);
+
+    }
+
+
+    @Test
+    void getBy2PropertiesEqAndGtSuccess() {
+
+        int parkid = 6;
+        List<Campsite> siteList = siteDao.getBy2PropertiesEqAndGt("parkid",parkid,"capacity","0");
+        Campsite oneSite = siteList.get(1);
+        int capacity = oneSite.getCapacity();
+        assertEquals(2,capacity);
 
     }
 }

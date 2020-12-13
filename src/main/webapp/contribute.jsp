@@ -3,6 +3,7 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
+<%@include file="top-buttons-authenticated.jsp"%>
 
 <div class="bgimg w3-display-container w3-text-white">
     <div class="w3-display-middle w3-large">

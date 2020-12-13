@@ -78,7 +78,7 @@
                 <option value="Kettle Moraine State Forest - Lapham Peak">
             </datalist>
         <br />
-        You can also check a specific campsite at this park to find out if it's hammock-friendly or not.
+        <p>Optionally, you can also check a specific campsite at this park to find out if it's hammock-friendly or not.</p>
         <br />
         <label for="siteno">What's the site number?</label><input type="text" id="siteno" name="siteno"><br>
 

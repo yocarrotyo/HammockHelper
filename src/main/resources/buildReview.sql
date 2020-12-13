@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: test_hammock
+-- Host: 127.0.0.1    Database: hammock
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	8.0.22-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,15 +23,12 @@ DROP TABLE IF EXISTS `review`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `review` (
-  `rev_id` int NOT NULL AUTO_INCREMENT,
-  `rev_user` int NOT NULL,
-  `rev_rating` float DEFAULT NULL,
-  `rev_campsite_id` int DEFAULT NULL,
-  PRIMARY KEY (`rev_id`),
-  KEY `review_campsite_id_fk` (`rev_campsite_id`),
-  KEY `review_rev_user_index` (`rev_user`),
-  CONSTRAINT `review_campsite_id_fk` FOREIGN KEY (`rev_campsite_id`) REFERENCES `campsite` (`id`),
-  CONSTRAINT `review_user_id_fk` FOREIGN KEY (`rev_user`) REFERENCES `user` (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `site_cap` int DEFAULT '0',
+  `park_id` int DEFAULT NULL,
+  `site_info_confidence` int DEFAULT '0',
+  `site_no` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-29 22:16:08
+-- Dump completed on 2020-12-13 17:05:07

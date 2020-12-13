@@ -127,6 +127,35 @@ public class GenericDao<T> {
         return entities;
     }
 
+    /**
+     * Get entity by two different properties (like) using AND logic
+     * sample usage: getByPropertyLike("lastname", "C")
+     *
+     * @param propertyName1 the first property to search on
+     * @param value1        the value for property 1
+     * @return the by property like
+     */
+    public List<T> getByPropertyEq(String propertyName1, int value1) {
+        Session session = getSession();
+
+        logger.debug("Searching for thing with {} euqal to {}",  propertyName1, value1);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+
+        //create an expression for each of the properties to check against
+        Expression<String> propertyPath1 = root.get(propertyName1);
+
+        //build a compound where clause for the query
+        Predicate queryRestriction = builder.equal(propertyPath1,value1);
+
+        query.where(queryRestriction);
+
+        List<T> entities = session.createQuery( query ).getResultList();
+        session.close();
+        return entities;
+    }
     /*
      *Get entity using two properties where one is a string column and the other is a number
      * @param propertyName1 the first property to search on. This should be the string column.
