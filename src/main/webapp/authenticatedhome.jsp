@@ -9,7 +9,8 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
-<div class="bgimg w3-display-container w3-text-white">
+<%@include file="top-buttons-authenticated.jsp"%>
+<div class="bgimg w3-display-container">
     <div class="w3-display-middle w3-large">
         <p>Hello! What would you like to do now?</p>
         <p>You can add to the database of hammock-friendly campsites, or help ensure our information is up-to-date
@@ -19,5 +20,4 @@
 
     </div>
 </div>
-</body>
-</html>
+

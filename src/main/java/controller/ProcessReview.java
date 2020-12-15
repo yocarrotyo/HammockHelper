@@ -7,6 +7,7 @@ import entity.Review;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
+import utils.ValidationUtility;
 
 import java.io.*;
 import java.util.*;
@@ -104,9 +105,12 @@ public class ProcessReview extends HttpServlet {
         }
 
         //Run the validation utility
+        ValidationUtility validator = new ValidationUtility();
+        validator.cleanup();
+        validator.copytocamp();
 
         //set up summary data for the user
-        session.setAttribute("addedSite",summaryList);
+        session.setAttribute("allSites",revDao.getByPropertyEq("parkid",parkid));
         session.setAttribute("thePark",thePark);
 
         //specify the url where to send results

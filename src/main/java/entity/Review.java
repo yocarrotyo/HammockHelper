@@ -71,7 +71,7 @@ public class Review implements Comparable<Review> {
     public int compareTo(Review rev) {
 
         return getConfidence() - rev.getConfidence();
-        
+
     }
 
 }

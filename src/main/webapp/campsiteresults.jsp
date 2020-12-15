@@ -3,7 +3,7 @@
 <%@include file="head.jsp"%>
 <body>
 
-<div class="bgimg w3-display-container w3-text-white">
+<div class="bgimg w3-display-container">
     <%@include file="top-buttons.jsp"%>
     <div class="w3-display-middle w3-large">
 
@@ -56,9 +56,10 @@
         <button onclick="window.location.href='search.jsp';" class="w3-button w3-black">Search again</button>
         <form action="findNearby" method="GET"><input type="submit" name="" class="w3-button w3-black" value="Find nearby" /></form>
     </div>
-
+    <%@include file="about-modal.jsp"%>
+    <%@include file="bottom-buttons.jsp"%>
 </div>
 
-<%@include file="bottom-buttons.jsp"%>
+
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <jsp:include page="head.jsp" />
 <body>
-    <div class="bgimg w3-display-container w3-text-white">
+    <div class="bgimg w3-display-container">
         <div class="w3-display-middle w3-large">
             <FORM ACTION="j_security_check" METHOD="POST">
                 <TABLE>

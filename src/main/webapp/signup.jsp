@@ -9,8 +9,10 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
-<div class="bgimg w3-display-container w3-text-white">
+<div class="bgimg w3-display-container">
     <div class="w3-display-middle w3-large">
+        <p>Hello! Glad you decided to join the Hammock Helper community of campers.</p>
+        <p>Choose a username and password for yourself and submit an email address if you'd like.</p>
         <form id="signUpForm" role="form" data-toggle="validator" class="form-horizontal"
               action="signUpUser"
               method="post">
@@ -82,7 +84,7 @@
                     data-disable="true">Submit
             </button>
             <button type="reset" class="btn btn-default">Clear</button>
-            <!--for google recaptcha-->
+            <!--for google recaptcha. Not figureing this out....-->
             <!--<div class="g-recaptcha" data-sitekey="6LewtTgUAAAAADuEbgusz9FbghpuXq-gBm6rLPS9"></div>-->
         </form>
     </div>

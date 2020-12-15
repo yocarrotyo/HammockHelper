@@ -10,7 +10,7 @@
 <%@include file="head.jsp"%>
 <body>
 <%@include file="top-buttons-authenticated.jsp"%>
-<div class="bgimg w3-display-container w3-text-white">
+<div class="bgimg w3-display-container">
     <div class="w3-display-middle w3-large">
         <p>Hello! Thanks for reviewing campsite data for accuracy. You can review information about park at a time.</p>
         <form action="findForReview" method="GET">
@@ -78,7 +78,10 @@
             </datalist>
             <!--submit button-->
             <input type="submit" name="" value="Get data to review" />
+        </form>
     </div>
+    <%@include file="bottom-buttons.jsp"%>
+    <%@include file="about-modal.jsp"%>
 </div>
 
 </body>

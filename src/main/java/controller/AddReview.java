@@ -57,13 +57,11 @@ public class AddReview extends HttpServlet {
         Park thePark = parkList.get(0);
         newReview.setParkid(parkList.get(0).getPark_id());
         newReview.setSiteno(siteno);
-        newReview.setConfidence(10);
+        newReview.setConfidence(0);
         siteDao.insert(newReview);
 
-        //Run the validation utility
-
         //Add the returned message to the session - figure out from last semester.
-        session.setAttribute("addedSite",newReview); //set the attribute
+        session.setAttribute("allSites",reviewDao.getByPropertyEq("parkid",thePark.getPark_id())); //set the attribute
         session.setAttribute("thePark",thePark);
 
         //specify the url where to send results

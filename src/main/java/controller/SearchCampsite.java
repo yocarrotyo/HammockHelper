@@ -83,7 +83,7 @@ public class SearchCampsite extends HttpServlet {
 
             //handle not finding the site
             if (siteList.isEmpty()) {
-                siteerror = "The specific campsite you searched for was not found in our database. We might not have data for it yet.";
+                siteerror = "The specific campsite you searched for was not found in our database. We might not have data for it yet. If the other sites at this park are booked, try Find Nearby to search for other park options.";
             }
             else {
                 onesite = siteList.get(0);

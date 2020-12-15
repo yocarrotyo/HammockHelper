@@ -5,7 +5,7 @@
 <body>
 <%@include file="top-buttons-authenticated.jsp"%>
 
-<div class="bgimg w3-display-container w3-text-white">
+<div class="bgimg w3-display-container">
     <div class="w3-display-middle w3-large">
     <p>Share what you know about a campsite in Wisconsin to help other campers</p>
     <!--entry from that sends data back to employeeAdd-->
@@ -81,6 +81,9 @@
             <input type="submit" name="" value="Submit" />
     </form>
     </div>
+    <%@include file="about-modal.jsp"%>
+    <%@include file="bottom-buttons.jsp"%>
 </div>
+
 </body>
 </html>

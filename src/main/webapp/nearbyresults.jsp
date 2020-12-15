@@ -11,10 +11,10 @@
 <%@include file="head.jsp"%>
 <body>
 <%@include file="top-buttons.jsp"%>
-    <div class="bgimg w3-display-container w3-text-white">
+    <div class="bgimg w3-display-container">
         <div class="w3-display-middle w3-large">
 
-            <p> The follow parks have ZIP codes within 20 miles of ${parkid} </p>
+            <p> The following parks have ZIP codes within 20 miles of ${park.parkname} </p>
             <ul>
                 <c:forEach var="park" items="${nearbyParks}">
                     <li>${park.parkname}</li>
@@ -25,10 +25,11 @@
             <p> Here are all the hammock-friendly campsites at those parks that we know of:</p>
             <table class="w3-table">
                 <c:forEach var="entry" items="${friendlySites}">
-                    <tr><td><c:out value="${entry.key.parkname}"/></td>
+                    <tr><td><c:out value="${entry.key.parkname}"/></td></tr>
                     <c:forEach var="campsite" items="${entry.value}">
                             <tr>
                                 <td><c:out value="${campsite.siteno}"/></td>
+                                <td><c:out value="${campsite.capacity}"/></td>
                             </tr>
                     </c:forEach>
                 </c:forEach>
@@ -38,7 +39,9 @@
                 <a href="https://wisconsin.goingtocamp.com/">Wisconsin DNR campsite reservation page</a>
             </p>
         </div>
+    <%@include file="about-modal.jsp"%>
+    <%@include file="bottom-buttons.jsp"%>
     </div>
-<%@include file="bottom-buttons.jsp"%>
+
 </body>
 </html>
