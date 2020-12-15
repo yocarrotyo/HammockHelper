@@ -21,8 +21,6 @@ public class Campsite {
     private int capacity;
     @Column(name = "site_info_confidence")
     private int confidence;
-    @Column(name = "site_rating")
-    private float rating;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
@@ -55,14 +53,6 @@ public class Campsite {
 
     public void setConfidence(int confidence) {
         this.confidence = confidence;
-    }
-
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
     }
 
     public int getId() {

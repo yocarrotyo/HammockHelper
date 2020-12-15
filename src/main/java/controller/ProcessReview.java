@@ -40,23 +40,73 @@ public class ProcessReview extends HttpServlet {
 
         HttpSession session = req.getSession();
         final Logger logger = LogManager.getLogger(this.getClass());
-        //Get the list of sites
-        List<Campsite> siteList = (List<Campsite>) session.getAttribute("siteList");
+
+        //Get the list of sites and which park we're dealing with
+        List<Review> siteList = (List<Review>) session.getAttribute("siteList");
+        Park thePark = (Park) session.getAttribute("thePark");
+        int parkid = thePark.getPark_id();
+        //we will need a review dao for making changes to the database
+        GenericDao<Review> revDao = new GenericDao<>(Review.class);
+
+        //create a new review in case one is needed and a list for sharing a summary of what was done
+        Review newReview;
+        List<Review> summaryList = new ArrayList<Review>();
+
         //go thru the sitelist
-        //get one site's siteno
-        //build strings for the session attributes for affirmation
-        //check the affirmation submissions
-        //increment review confidence -- not just the instance variable but in the review table itself also
-        //run the validation utility
-        //build string for the session attribute for dispute
-        //check the dispute submissions
-        //reduce confidence on the existing review
-        //add a new review with the submitted info
+        for(Review onesite : siteList) {
+            //get one site's siteno
+            String siteno = onesite.getSiteno();
+            //build strings for the request attributes
+            String affirmstr = "affirm" + siteno;
+            String dispstr = "dispute" + siteno;
+            String hamcap = "hamcap" + siteno;
+
+
+            //check the affirmation submissions
+            String affirmsite = req.getParameter(affirmstr);
+            String literally = req.getParameter("literally");
+            if (affirmsite != null) {
+                //fetch the review based on the siteno
+                List<Review> revList = revDao.getBy2PropertiesLikeAndEq("siteno",siteno,"parkid",parkid);
+                Review existingReview = revList.get(0); //we only need to review ONE of the (possibly several) submissions per park/siteno - assumption: if it's wrong, it'll eventually get corrected
+                //increment review confidence
+                int confidence = existingReview.getConfidence();
+                existingReview.setConfidence(confidence+1);
+                //update the database
+                revDao.saveOrUpdate(existingReview);
+
+                //add this review to the list for summary return
+                summaryList.add(existingReview);
+            }
+
+            String disputesite = req.getParameter(dispstr);
+            if(disputesite != null) {
+                List<Review> revList = revDao.getBy2PropertiesLikeAndEq("siteno",siteno,"parkid",parkid);
+                Review existingReview = revList.get(0);
+                int confidence = existingReview.getConfidence();
+                //reduce confidence on the existing review
+                existingReview.setConfidence(confidence-1);
+                revDao.saveOrUpdate(existingReview);
+
+                //copy data to the new review (re-instantiate each time)
+                newReview = new Review();
+                newReview.setCapacity(Integer.parseInt((req.getParameter(hamcap))));
+                newReview.setParkid(existingReview.getParkid());
+                newReview.setSiteno(existingReview.getSiteno());
+                newReview.setConfidence(1);
+
+                //add new review to the database
+                revDao.insert(newReview);
+
+                //add this review to the list for summary return
+                summaryList.add(newReview);
+            }
+        }
 
         //Run the validation utility
 
-        //Send a thank you message to the user
-        session.setAttribute("addedSite",newReview); //set the attribute
+        //set up summary data for the user
+        session.setAttribute("addedSite",summaryList);
         session.setAttribute("thePark",thePark);
 
         //specify the url where to send results

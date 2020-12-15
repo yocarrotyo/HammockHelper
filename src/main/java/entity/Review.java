@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity(name = "Review")
 @Table(name = "review")
-public class Review {
+public class Review implements Comparable<Review> {
 
     @Column(name = "site_no")
     private String siteno;
@@ -66,6 +66,12 @@ public class Review {
 
     public void setParkid(int parkid) {
         this.parkid = parkid;
+    }
+
+    public int compareTo(Review rev) {
+
+        return getConfidence() - rev.getConfidence();
+        
     }
 
 }

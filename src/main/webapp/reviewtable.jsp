@@ -18,13 +18,13 @@ Display all the site park data in a nice lil table
     <form action="processReview" method="POST">
     <!--select search type-->
         <table>
-        <tr><td>Site number</td><td>Capacity</td><td>Affirm?</td><td>Dispute?</td></tr>
+        <tr><td>Site number</td><td>Capacity</td><td>Dispute?</td><td>Affirm?</td></tr>
             <c:forEach var="site" items="${siteList}">
             <tr>
             <td>${site.siteno}</td>
-            <td><input type="text" name="hamcap${site.siteno}" value="${site.capacity}"/></td>
-            <td><input type="radio" name="dispute${site.siteno}"/></td>
-            <td><input type="radio" name="affirm${site.siteno}"/></td>
+            <td><input type="text" id=hamcap${site.siteno} name=hamcap${site.siteno} value=${site.capacity} /></td>
+            <td><input type="checkbox" id=dispute${site.siteno} name=dispute${site.siteno} value=dispute${site.siteno} /></td>
+            <td><input type="checkbox" id=affirm${site.siteno} name=affirm${site.siteno} value=affirm${site.siteno} /></td>
             </tr>
             </c:forEach>
         </table>

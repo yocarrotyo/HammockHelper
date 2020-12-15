@@ -20,6 +20,7 @@
         <mapping class="entity.User"/>
         <mapping class="entity.Park"/>
         <mapping class="entity.Role"/>
+        <mapping class="entity.Review"/>
 
     </session-factory>
 

@@ -59,8 +59,9 @@ public class FindForReview extends HttpServlet {
         GenericDao<Review> revDao = new GenericDao(Review.class);
         List<Review> siteList = revDao.getByPropertyEq("parkid",parkid);
 
-        //put the campsites in the session
+        //put the review entries and the park ID into the session
         session.setAttribute("siteList",siteList);
+        session.setAttribute("thePark",onepark);
 
         //forward the request to the contribute jsp
         RequestDispatcher dispatcher = req.getRequestDispatcher("/reviewtable.jsp");

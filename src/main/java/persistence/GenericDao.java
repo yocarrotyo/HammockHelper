@@ -167,7 +167,7 @@ public class GenericDao<T> {
     public List<T> getBy2PropertiesLikeAndEq(String propertyName1, String value1, String propertyName2, int value2) {
         Session session = getSession();
 
-        logger.debug("Searching for thing with {} like {} and {} like {}",  propertyName1, value1, propertyName2, value2);
+        logger.debug("Searching for thing with {} like {} and {} equal to {}",  propertyName1, value1, propertyName2, value2);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);

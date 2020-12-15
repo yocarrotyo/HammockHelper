@@ -15,16 +15,15 @@
 <div class="bgimg w3-display-container w3-text-white">
     <div class="w3-display-middle w3-large">
         <p>Thanks for contributing to Hammock Helper!</p>
-        <p>Here are the details of the site you added: </p>
+        <p>Here are the details of the information you submitted: </p>
         <table class="w3-table">
             <tr><td>Park</td><td>Campsite #</td><td>Number of hammocks</td></tr>
-            <tr><td>${thePark.parkname}</td><td>${addedSite.siteno}</td><td>${addedSite.capacity}</td></tr>
+            <c:forEach var="site" items="${addedSite}">
+                <tr><td>${thePark.parkname}</td><td>${site.siteno}</td><td>${site.capacity}</td></tr>
+           </c:forEach>
         </table>
     </div>
 
-<div class="w3-display-bottommiddle">
-    <button onclick="window.location.href='contribute.jsp';" class="w3-button w3-black">Add Another Site</button>
-    <p><button onclick="window.location.href='startreview.jsp';" class="w3-button w3-black">Review data</button></p>
-</div>
+<%@include file="bottom-buttons.jsp"%>
 </body>
 </html>

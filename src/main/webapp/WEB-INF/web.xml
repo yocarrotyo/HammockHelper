@@ -46,6 +46,18 @@
     </auth-constraint>
   </security-constraint>
 
+  <!-- Protect the review page -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>startreview</web-resource-name>
+      <url-pattern>/startreview.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>Camper</role-name>
+      <role-name>Parkemployee</role-name>
+    </auth-constraint>
+  </security-constraint>
+
   <security-role>
     <role-name>Camper</role-name>
   </security-role>
