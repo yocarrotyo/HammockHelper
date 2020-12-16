@@ -53,8 +53,8 @@ A public spreadsheet to track hammock sites was started in 2017 on hammockforums
 ### Design - Coming soon
 
 * [User Stories](DesignDocuments/userStories.md)
-* [Screen Design](DesignDocuments/HammockHelper Screen Flow.pdf)
-* [Application Flow](DesignDocuments/HammockHelper Full Flow.md)
+* [Screen Design](DesignDocuments/HammockHelperScreenFlow.pdf)
+* [Application Flow](DesignDocuments/HammockHelperFullFlow.md)
 * [Database Design](DesignDocuments/databaseDiagram.png)
 
 ### [Project Plan](ProjectPlan.md)
