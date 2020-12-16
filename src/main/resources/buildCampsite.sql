@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: test_hammock
+-- Host: 127.0.0.1    Database: hammock
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	8.0.22-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `campsite`;
 CREATE TABLE `campsite` (
   `id` int NOT NULL AUTO_INCREMENT,
   `site_cap` int DEFAULT '0',
-  `site_pk_id` int DEFAULT NULL,
+  `park_id` int DEFAULT NULL,
   `site_info_confidence` int DEFAULT NULL,
-  `site_rating` float DEFAULT NULL,
+  `site_no` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `campsite_park_id_fk` (`site_pk_id`),
-  CONSTRAINT `campsite_park_id_fk` FOREIGN KEY (`site_pk_id`) REFERENCES `park` (park_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `campsite_park_id_fk` (`park_id`),
+  CONSTRAINT `campsite_park_id_fk` FOREIGN KEY (`park_id`) REFERENCES `park` (`park_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `campsite` (
 
 LOCK TABLES `campsite` WRITE;
 /*!40000 ALTER TABLE `campsite` DISABLE KEYS */;
+INSERT INTO `campsite` (`id`, `site_cap`, `park_id`, `site_info_confidence`, `site_no`) VALUES (1,1,6,10,'2'),(2,0,6,10,'17'),(3,2,6,10,'9'),(4,1,15,10,'36'),(5,0,15,10,'13');
 /*!40000 ALTER TABLE `campsite` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-29 22:15:13
+-- Dump completed on 2020-12-15 22:36:06

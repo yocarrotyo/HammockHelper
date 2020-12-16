@@ -3,15 +3,14 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
-<%@include file="top-buttons-authenticated.jsp"%>
-
 <div class="bgimg w3-display-container">
+    <%@include file="top-buttons-authenticated.jsp"%>
     <div class="w3-display-middle w3-large">
     <p>Share what you know about a campsite in Wisconsin to help other campers</p>
     <!--entry from that sends data back to employeeAdd-->
     <form action="addReview" method="POST">
         <!--select search type-->
-        Add campsite info here:
+        <p>Add campsite info here:</p>
 
             <label for="park">Park Name: </label>
             <input list="park" name="park" required="required">

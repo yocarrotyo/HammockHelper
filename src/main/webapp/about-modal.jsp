@@ -18,7 +18,7 @@
             <p>This site helps people find campsites with two (or more!) trees that can support a hammock.
             <p>We currently have data for state parks and backcountry camp sites in the following places:<p>
             <ul><li>Wisconsin</li></ul>
-            <p>When you sing up for a username, you can add information about campsites you've visited
+            <p>When you sign up for a username, you can add information about campsites you've visited
                 (whether hammock friendly or not) and review what others have submitted to help us make sure
                 what we have is accurate.</p>
             <p>Created by Caroline and Bean (the cat) for Mad Java at Madison Area Technical College</p>

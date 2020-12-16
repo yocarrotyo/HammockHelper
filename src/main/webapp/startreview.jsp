@@ -9,10 +9,11 @@
 <html>
 <%@include file="head.jsp"%>
 <body>
-<%@include file="top-buttons-authenticated.jsp"%>
+
 <div class="bgimg w3-display-container">
+    <%@include file="top-buttons-authenticated.jsp"%>
     <div class="w3-display-middle w3-large">
-        <p>Hello! Thanks for reviewing campsite data for accuracy. You can review information about park at a time.</p>
+        <p>Hello! Thanks for reviewing campsite data for accuracy. You can review information about one park at a time.</p>
         <form action="findForReview" method="GET">
             <!--select search type-->
             <label for="park">Choose a park you're familiar with:</label>

@@ -12,6 +12,10 @@
     <session-timeout>30</session-timeout>   <!-- 30 minutes -->
   </session-config>
 
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error404.jsp</location>
+  </error-page>
 
   <!-- Tell the server to use form-based authentication. -->
   <login-config>

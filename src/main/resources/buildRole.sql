@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: test_hammock
+-- Host: 127.0.0.1    Database: hammock
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	8.0.22-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,7 +30,7 @@ CREATE TABLE `role` (
   UNIQUE KEY `role_id_uindex` (`id`),
   KEY `role_user_user_name_fk` (`user_name`),
   CONSTRAINT `role_user_user_name_fk` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` (`id`, `role_name`, `user_name`) VALUES (1,'Camper','rockhead929'),(2,'Camper','blond2016'),(3,'Camper','itsmyworld'),(4,'Parkemployee','aardvark96'),(5,'Parkemployee','chihiro963'),(6,'Camper','iBeezinDaTrap');
+INSERT INTO `role` (`id`, `role_name`, `user_name`) VALUES (1,'Camper','rockhead929'),(2,'Camper','blond2016'),(3,'Camper','itsmyworld'),(4,'Parkemployee','aardvark96'),(5,'Parkemployee','chihiro963'),(6,'Camper','iBeezinDaTrap'),(40,'Camper','awesomegirl22'),(41,'Camper','campergirl22'),(42,'Camper','camperperson'),(43,'Camper','helpme'),(44,'Camper','helpme2'),(45,'Camper','god');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-29 22:14:30
+-- Dump completed on 2020-12-16  0:05:13

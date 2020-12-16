@@ -224,10 +224,5 @@ public class GenericDao<T> {
 
     }
 
-
-    //save or update
-
-    //insert
-
 }
 

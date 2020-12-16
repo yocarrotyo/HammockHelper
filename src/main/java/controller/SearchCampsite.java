@@ -18,6 +18,7 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Servlet for searching the campsite database for sites and determining if they're hammock-friendly.
+ * Performs a lookup of the park based on the name provided by the user, and of the Campsite table using the park's ID.
  * @author chughes
  */
 
@@ -25,7 +26,20 @@ import org.apache.logging.log4j.Logger;
         urlPatterns = {"/searchCampsite"}
 )
 
+
 public class SearchCampsite extends HttpServlet {
+
+    /**
+     * Handles Http GET requests. The request is expected to include the name of a park and a campsite.
+     * Performs lookup of the park and the campsite data for the park, setting session attributes including all the
+     * campsites at the park with hammock capcity greater than 0.
+     * @author chughes
+     *
+     *@param  req               the HttpRequest
+     *@param  resp             the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -33,7 +47,7 @@ public class SearchCampsite extends HttpServlet {
         final Logger logger = LogManager.getLogger(this.getClass());
 
         //access the info that was entered into the form - park and maybe site no
-        String siteno= req.getParameter("siteno");
+        String siteno= req.getParameter("siteno"); //can be blank
         String parkname = req.getParameter("park");
         logger.debug("the value of the parkname parameter is: ",parkname);
 
@@ -102,7 +116,7 @@ public class SearchCampsite extends HttpServlet {
         req.setAttribute("isFriendly", hammockFriendly);
         req.setAttribute("siteno",siteno);
         req.setAttribute("campsites", siteDao.getBy2PropertiesEqAndGt("parkid",parkid,"capacity","0"));
-        req.setAttribute("park", parkname);
+        session.setAttribute("park", parkname);
         req.setAttribute("parkerror",parkerror);
         req.setAttribute("siteerror",siteerror);
         session.setAttribute("parkid",parkid); //will need this later for the findnearby search

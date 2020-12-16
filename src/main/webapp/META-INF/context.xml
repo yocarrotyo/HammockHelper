@@ -1,4 +1,4 @@
-<Context docBase="/HammockHelper" path="/HammockHelper_war" reloadable="true">
+<Context docBase="/HammockHelper" path="/HammockHelper" reloadable="true">
     <Realm className="org.apache.catalina.realm.JDBCRealm"
            driverName="com.mysql.cj.jdbc.Driver"
            connectionURL="jdbc:mysql://localhost:3306/hammock?user=tomcat&amp;password=IamT0mcat!"

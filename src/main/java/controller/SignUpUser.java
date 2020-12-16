@@ -16,7 +16,8 @@ import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 /**
- * Created by paulawaite on 3/3/16 and stolen by Caroline on 12/9/20.
+ * Created by paulawaite on 3/3/16 and stolen by Caroline on 12/9/20. Class for registering new users to the Hammock Helper
+ * so they can contribute to the database.
  */
 
 @WebServlet(name = "SignUpUser", urlPatterns = { "/signUpUser" } )
@@ -25,8 +26,18 @@ public class SignUpUser extends HttpServlet {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     *  Handles HTTP POST requests. Creates a new user based on form data provided by the user in the signup.jsp
+     *@param  req               the HttpRequest
+     *@param  resp              the HttpResponse
+     *@exception  ServletException  if there is a general
+     *                              servlet exception
+     *@exception  IOException       if there is a general
+     *                              I/O exception
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         User user = new User();
         user.setUsername(req.getParameter("username"));
         user.setEmail(req.getParameter("email"));
@@ -43,7 +54,7 @@ public class SignUpUser extends HttpServlet {
         System.out.println(gRecaptchaResponse);
         boolean isVerified = VerifyRecaptcha.verify(gRecaptchaResponse);
 
-        //if (isVerified) {
+        //if (isVerified) { commented code for future possible implementation of a ReCaptcha
         GenericDao userDao = new GenericDao(User.class);
         //look up a user with username provided
         List<User> existingUsers = userDao.getByProperty("username", req.getParameter("username"));
@@ -53,7 +64,7 @@ public class SignUpUser extends HttpServlet {
             req.setAttribute("errorMessage", "That username is already in use");
             logger.info("Existing user");
         }
-        /*} else {
+        /*} else { commented code for future possible implementation of a ReCaptcha
             req.setAttribute("errorMessage", "Failed Captcha - Please try again");
             logger.info("Failed Captcha");
         }

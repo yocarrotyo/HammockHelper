@@ -1,9 +1,6 @@
 package persistence;
 
-import entity.Campsite;
-import entity.Park;
-import entity.Role;
-import entity.User;
+import entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +17,7 @@ class GenericDaoTest {
     GenericDao siteDao;
     GenericDao userDao;
     GenericDao parkDao;
+    GenericDao revDao;
 
     /*
     Set up the tests
@@ -55,10 +53,22 @@ class GenericDaoTest {
         Role retrievedRole = (Role) roleDao.getById(4);
         //check that the role isn't null
         assertNotNull(retrievedRole);
-        //make sure you can look up stuff about the user too
+        //make sure you can look up stuff about the role too
         assertEquals("Arthur",retrievedRole.getUser().getFname());
         retrievedRole = (Role) roleDao.getById(6);
         assertEquals("Nicki",retrievedRole.getUser().getFname());
+    }
+
+    @Test
+    void getByIdVerifyCampsite() {
+
+        Campsite retrievedSite = (Campsite) siteDao.getById(1);
+        //check that the role isn't null
+        assertNotNull(retrievedSite);
+        //make sure you can look up stuff about the site too
+        assertEquals(1,retrievedSite.getCapacity());
+        retrievedSite = (Campsite) siteDao.getById(2);
+        assertEquals(0,retrievedSite.getCapacity());
     }
 
     @Test
@@ -91,6 +101,26 @@ class GenericDaoTest {
         //check that the users set on the
         assertEquals("Caroline",insertedRole.getUser().getFname());
         assertEquals("Admin",insertedRole.getRolename());
+
+    }
+
+    @Test
+    void insertReviewSuccess() {
+
+        //grab a user to add for the new role
+        revDao = new GenericDao(Review.class);
+
+        Review newReview = new Review();
+        newReview.setCapacity(1);
+        newReview.setSiteno("13");
+        newReview.setConfidence(0);
+        newReview.setParkid(5);
+        int id = roleDao.insert(newReview);
+        assertNotEquals(0,id);
+        Review insertedReview = (Review) revDao.getById(id);
+        assertNotNull(insertedReview);
+
+        assertEquals(5,insertedReview.getParkid());
 
     }
 
@@ -132,7 +162,6 @@ class GenericDaoTest {
         assertEquals(1,capacity);
 
     }
-
 
     @Test
     void getBy2PropertiesEqAndGtSuccess() {

@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: test_hammock
+-- Host: 127.0.0.1    Database: hammock
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	8.0.22-0ubuntu0.20.04.3
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_uindex` (`id`),
   UNIQUE KEY `user_user_name_uindex` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id`, `user_name`, `user_fname`, `user_lname`, `user_email`, `user_password`) VALUES (1,'chihiro963','Caroline','Hughes','hughe297@gmail.com','5Mith5'),(2,'blond2016','Frank','Ocean','grammywinner@gmail.com','$0L0$'),(3,'aardvark96','Arthur','Read','iLoveBooks@gmail.com','DWISANNOYING'),(4,'rockhead929','John','McPhee','rockhead929@yahoo.com','ilovegeology'),(5,'iBeezinDaTrap','Nicki','Minaj','rapQueen4lyfe@gmail.com','p!nkpr!nt'),(6,'itsmyworld','Elmo','','elmosworld@sesame.com','123ABC'),(30,'ilovebikes2020','Etan','Heller','EEHELLBOi225@yahoo.com','LETSROCK');
+INSERT INTO `user` (`id`, `user_name`, `user_fname`, `user_lname`, `user_email`, `user_password`) VALUES (1,'chihiro963','Caroline','Hughes','hughe297@gmail.com','5Mith5'),(2,'blond2016','Frank','Ocean','grammywinner@gmail.com','$0L0$'),(3,'aardvark96','Arthur','Read','iLoveBooks@gmail.com','DWISANNOYING'),(4,'rockhead929','John','McPhee','rockhead929@yahoo.com','ilovegeology'),(5,'iBeezinDaTrap','Nicki','Minaj','rapQueen4lyfe@gmail.com','p!nkpr!nt'),(6,'itsmyworld','Elmo','','elmosworld@sesame.com','123ABC'),(30,'ilovebikes2020','Etan','Heller','EEHELLBOi225@yahoo.com','LETSROCK'),(31,'awesomegirl22','caroline','hughes','merp@merp.com','loveya'),(32,'campergirl22','caroline','hughes','merp@merp.com','loveya'),(33,'camperperson','caroline','hughes','merp@merp.com','loveya'),(34,'helpme','caroline','hughes','merp@merp.com','help'),(35,'helpme2','alskdfj','aslfdkj','help@me.com','help'),(36,'god','aaaaah','aaaaah','ah@ah.ah','iamgod');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-29 22:14:38
+-- Dump completed on 2020-12-16  0:05:01

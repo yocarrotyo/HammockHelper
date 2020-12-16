@@ -17,11 +17,24 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+
+/**
+* Class for finding review data, for the purpose of presenting them to the user for them to review.
+*/
 @WebServlet(
         urlPatterns = {"/findForReview"}
 )
 public class FindForReview extends HttpServlet {
 
+    /**
+     * Handles Http GET requests. No user input is provided immediately before this servlet is called, but it uses
+     * session attribute data set by the searchCampsite servlet
+     *
+     *@param  req               the HttpRequest
+     *@param  resp             the HttpResponse
+     *@exception  ServletException  if there is a general servlet exception
+     *@exception  IOException       if there is a general I/O exception
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -35,6 +48,7 @@ public class FindForReview extends HttpServlet {
         //get a DAO for the park & set up an error message
         GenericDao<Park> parkDao = new GenericDao(Park.class);
         String parkerror = "";
+        String siteerror = "";
 
         //use the Park Dao to find the ID of the park because I don't want to do a table join
         List<Park> parkList = parkDao.getByProperty("parkname",parkname); //this will require multi-state lookup soon
@@ -58,7 +72,10 @@ public class FindForReview extends HttpServlet {
         //look up all the reviewable data related to that park
         GenericDao<Review> revDao = new GenericDao(Review.class);
         List<Review> siteList = revDao.getByPropertyEq("parkid",parkid);
-
+        if (siteList.size() < 1){
+            siteerror = "We don't have any data to review for that park. Can you be the first to add it?";
+            req.setAttribute("siteerror",siteerror);
+        }
         //put the review entries and the park ID into the session
         session.setAttribute("siteList",siteList);
         session.setAttribute("thePark",onepark);

@@ -7,10 +7,20 @@ import persistence.GenericDao;
 
 import java.util.Collections;
 import java.util.List;
-/* Cleans up the review table. Transfers the review data we have a certain amount of confience in over to the campsite
-table so it can be found in the search*/
+
+/**
+ * The type Validation utility.
+ *
+ * Cleans up the review table. Transfers the review data we have a certain amount of confidence in over to the campsite
+   table so it can be found in the search. Called every time someone submits a data review from the ProcessReview servlet.
+    In the future, this can be modified to be run ad-hoc from the web interface by an admin user.
+ */
 public class ValidationUtility {
 
+    /**
+     * Cleanup. Removes data we're not confident in (defined as a confidence score lower than -2) from the Review table.
+     * Removes duplicates from the Review table by retaining only the one with the highest confidence score.
+     */
     public void cleanup() {
 
     //go through the rows of the review table (use a getall to put them in a list)
@@ -34,6 +44,10 @@ public class ValidationUtility {
         }
     }
 
+    /**
+     * Copytocamp. Moves any data we're confident in (defined as a confidence score higher than 2) from the Review table
+     * to the Campsite table. Deletes data out of the Review table after it's been copied.
+     */
     public void copytocamp() {
 
         //go through the rows of the review table (use a getall to put them in a list)
@@ -50,8 +64,8 @@ public class ValidationUtility {
             newSite.setConfidence(rev.getConfidence());
             //figure out the park dao (review table doesn't store park entities as its instance variable, just the digits)
             GenericDao parkDao = new GenericDao(Park.class);
-            List<Park> theParks = parkDao.getByPropertyEq("parkid",rev.getParkid());
-            newSite.setParkid(theParks.get(0));
+            Park thePark = (Park) parkDao.getById(rev.getParkid());
+            newSite.setParkid(thePark);
             newSite.setSiteno(rev.getSiteno());
             //add the campsite object to the actual database
             GenericDao siteDao = new GenericDao(Campsite.class);
