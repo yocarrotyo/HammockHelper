@@ -14,8 +14,8 @@
 | 11/30/20| Created form for submitting data re: which state park to search | 2 | |
 | 11/29/20| Found a CSS template to use. Built a basic servlet for contributing data that does absolutely nothing, but you can navigate to it if logged in! | 1 | |
 | 10/30/20| Re-deployed to AWS for checkpoint 3 | 1.5 | Struggled and do not really understand how I resolved this.|
-| 10/27/20| Created a DAO for consuming the ZIP code API. Wrote a unit test for it. | 2 | |
-| 10/21/20| Implemented form-based authorization, hiding trivial contribute.jsp behind the login form. | 2 | |
+| 10/27/20| Created a DAO for consuming the ZIP code API. Wrote a unit test for it. | 6 | |
+| 10/21/20| Implemented form-based authentication, hiding trivial contribute.jsp behind the login form. | 6 | |
 | 10/12/20| Cleaned up git cache. | 2 | |
 | 10/11/20| Deployed to AWS for first time as part of class exercise. | 4 | |
 | 10/7/20| For the week 8 class exercise, created a DAO for consuming the ZIP code API. Wrote a unit test for it. | 2 | |
