@@ -49,4 +49,50 @@ Other stuff that happened this week:
 
 I need to figure out a generic Dao, and also figure out why the name of my project is appearing in AWS Tomcat as the user display exercise.
 I am using a really useless user display jsp for my first deployment of my project. Getting concerned about the jsp aspects of it.
+
 ## Week 7 (Started Oct 14)
+* Started building Generic Dao.
+* Added form-based authentication as part of the exercise. I want to have an admin role but don't think I can actually build out functionality that the admin would perform for my MVP. Contributing data will be available to Campers for now, that's the default user role that is assigned to everyone
+
+## Week 8 (Started Oct 21)
+* Researched and implemented consumption of the ZIP code api, at least for trivial case. My project is a great use case for this API because the rural locations of the state parks are far ennough apart that the ZIP code can approximate their location. For urban sites the ZIP code is not precise enough, would have to use some kind of latitude and longitude measurement.
+
+## Week 9 (Started Oct 28)
+* Struggled with re-deploying to AWS after implementing user authentication. I think this is because my application context in IntelliJ was HammockHelper_war but I thought it was supposed to be HammockHelper
+* Updated the gitignore file to exclude my database credentials. Removed sensitive files from the github cache.
+
+## Week 10 (Started Nov 4)
+* Avoided project. Afraid of AWS.
+
+## Week 11 (Started Nov 11)
+* Did pretty much nothing. Team project going on. Started working at Target this week, plus it was Etan's birthday, so majorly distracted.
+* In hindsight, doing nothing this week was my tragic accident.
+
+## Week 12 (Started Nov 18)
+* Fixed my generic DAO based on what we learned in the group project. Yay! Tiny amount of momentum restored!
+
+## Week 13 (Started Nov 25)
+* Could have done more because Thanksgiving was cancelled BUT I spent like 15 hours trying to bake a single pumpkin pie because of oven issues, also I felt guilty because I had gone so late to get daffodil bulbs that the only thing left were pre-chilled paperwhites and they were literally starting to sprout in the bag. I expect there is a 30% chance I will have flowers come Spring.
+* Properly figured out the search of the campsite table, my first JSP that actually returns results someone would want to see instead of random user data. Yay :)
+* Got a CSS template and modified it slightly to look decently accetpable. This can be a time-suck and distraction!!! There are millions of little things to change but none of them are really important right now.
+
+## Week 14 (Started Dec 2)
+* Worked out handling the results sent back by the ZIP code API. I am proud to say I did this in a rather TDD-manner. I made sure ZIp codes were coming back from the API first, then parks, then resolved those to sites, then to hammock-friendly sites. They aren't displaying correctly. The results are stored in a hashmap and the inner object isn't accessible with the way my loop is set up.
+* Continued working on CSS, but trying not to get distracted by the little inconsistencies.
+* Bought a domain name for the project for the future. #RetailTherapy
+* Reviewed unit tests for thoroughness, realized I maybe need to build more using DAOs of other entities (most were copied from back when user and role were my only tables).
+* Stole Paula's code to build sign-up page to be able to register a new user.
+* Tried to implement a captcha as Paula has. Got a key on Google, otherwise failed.
+* Prepped presentation
+
+## Week 15 (Started Dec 9)
+* Fixed problems with displaying the contents of my HashMap of nearby campsites. Needed a nested for-loop. 
+Decided the data review function wouldn't be worth implementing without doing it propertly using a Review table. Built this out. Simplified the Review and Campsite tables by getting rid of the site rating concept. Had to rebuild database tables, which feels so risky to do.
+* Wrote a data validation utility to clean up data in Review and copy data with a high confidence score from Review to Campsite. This feels like the "special sauce" of my whole web app. Learned (sort of) to implement the Comparator interface in order to remove duplicate Reviews with inferior confidence scores! Currently, there's no limit on the number of times people can add a "review" for a certain campsite. I do not deal with validating information as it's submitted to the Review table, relying on the human review process for that, which is sort of silly. In the future, the submission process should include only creating a new row in Review when there is another review with the same park and campsite nunmber, but a DIFFERENT hammock capacity. Reviews that are the same should just result in increasing the confidence score of the existing one automatically, meaning that entry would be copied to the Campsite table right away. I probably didn't test enough corner cases of the validation utility to validate that it *really* works exactly the way I think it does.
+* Refactored some servlets to avoid monstrous doGet and doPost methods. Some still are too large/rambling, but I thouoght refactoring this late was risky and could introduce errors. This is especially true for the servlets that have more code built in for handling null result type of situations...scared to break them.
+* Wanted to implement better data checking for the campsite submissions, but deprioritized in favor of getting it all working on AWS. YOu can enter total garbage as a campsite number, like 34t5DF*(&#$$Tghs. Well, if Hammocker Helper were a company, I'd be paying a lot for human data review.
+* Attempted to implement loading the API target for the ZIP code API from a properties file. I kept getting the inStream parameter is null error. Internet suggested my Resources folder wasn't really known to Intellij as a Resources folder, but that wasn't right. Theory: the properties file isn't in the classpath. But I don't know how to get it there. I gave up.
+* Wrote more unit tests, but could not get coverage to go up.
+* Tested everything 10 billion times and kept finding little errors. I ultimately took out the "summary table" that displays to users after they have either submitted or reviewed data. I was sharing this page between to servlets/functions and it was too confusing. Especially since the Review table can have many duplicate entries.
+* To get ready to deploy to amazon, rebuilt database tables in Amazon. Struggles with foreign keys as usual. But was able to resolve after being very careful with mysqldump.
+* Figured out that my struggles with authentication were due to not re-assigning read access to Tomcat
