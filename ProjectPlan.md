@@ -85,12 +85,12 @@ Week 11 (Starts Nov 11) - Team Project work week
 
 Week 12 (Starts Nov 18) - Team Project due
 - [ ] Weekly journal entry
-- [ ] Identify list of remaining todos
+- [x] Identify list of remaining todos
 
 Week 13 (Starts Nov 25)--Thanksgiving
 - [ ] Weekly journal entry
 - [ ] Complete todos identified in week 12
-- [ ] Prepare for week 13 peer code reviews
+- [x] Prepare for week 13 peer code reviews
 - [ ] Code quality check
 - [x] Add real park data to database with park ZIP codes
 - [x] Complete the "find other sites nearby" (API integration with ZIP codes)
@@ -98,40 +98,16 @@ Week 13 (Starts Nov 25)--Thanksgiving
 
 Week 14 (Starts Dec 2)
 - [ ] Weekly journal entry
-- [ ] Create final presentation
+- [x] Create final presentation
 - [x] Add ability to register a new user
 
 Week 15 (Starts Dec 9)
-- [ ] Final Presentation
-- [ ] Create video
-- [ ] Finalize all documentation
+- [x] Final Presentation
+- [x] Create video
+- [x] Finalize all documentation
 - [ ] Code quality check
 
 Week 16 (Starts Dec 16)
 - [ ] Weekly journal entry
-- [ ] Final touches before code complete LOLLLLLLLLLL
+- [x] Final touches before code complete LOLLLLLLLLLL
 
-##Deliverables
-
-##Checkpoint 1: September 24
- 
- Problem statement
- User stories & identify MVP
- Project plan
- Screen design
- Reflection statements
- 
- ##Checkpoint 2: October 15 
- 
- Database designed and created
- At least one DAO implemented with Hibernate
- DAO is unit tested
- Log4J is implemented
- Class design
- Diagrams
-  
- ##Checkpoint 3: October 29
- 
- Deployed to AWS
- At least one JSP that displays data from the database is implemented
- Authentication implemented (log in capability)
